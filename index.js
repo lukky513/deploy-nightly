@@ -97,8 +97,9 @@ async function run() {
 
 		let now = new Date();
 		let date = now.getUTCFullYear().toString() + pad2((now.getUTCMonth() + 1).toString()) + pad2(now.getUTCDate().toString());
+		let time = pad2(now.getUTCHours().toString()) + pad2(now.getUTCMinutes().toString()) + pad2(now.getUTCSeconds().toString());
 
-		name = name.replace("$$", date + "-" + hash);
+		name = name.replace("$$", date + "-" + time + "-" + hash);
 
 		if (existingAssetNameId !== undefined) {
 			core.info("Deleting old asset of same name first");
